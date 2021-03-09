@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: './', // 使得本地打包好的静态页面能打开
   css: {
     loaderOptions: {
       // 默认情况下 `sass` 选项会同时对 `sass` 和 `scss` 语法同时生效
