@@ -1,5 +1,5 @@
+// vue.config.js
 module.exports = {
-  publicPath: './', // 使得本地打包好的静态页面能打开
   css: {
     loaderOptions: {
       // 默认情况下 `sass` 选项会同时对 `sass` 和 `scss` 语法同时生效
@@ -17,8 +17,7 @@ module.exports = {
     proxy: {
       '/boss': {
         target: 'http://eduboss.lagou.com',
-        // ws: true, // websocket时使用
-        changeOrigin: true // 把请求中的host配置为target
+        changeOrigin: true // 把请求头中的 host 配置为 target
       },
       '/front': {
         target: 'http://edufront.lagou.com',
