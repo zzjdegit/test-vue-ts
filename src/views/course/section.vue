@@ -40,7 +40,19 @@
           <!-- lession -->
           <span v-else class="actions">
             <el-button @click="handleShowEditLesson(data, node.parent.data)">编辑</el-button>
-            <el-button type="success">上传视频</el-button>
+            <el-button
+              type="success"
+              @click="$router.push({
+                name: 'course-video',
+                params: {
+                  courseId
+                },
+                query: {
+                  sectionId: node.parent.id,
+                  lessonId: data.id,
+                }
+              })"
+            >上传视频</el-button>
             <el-select
               class="select-status"
               v-model="data.status"
@@ -213,7 +225,7 @@ export default Vue.extend({
     },
 
     async handleAddSection () {
-      const { data } = await saveOrUpdateSection(this.section)
+      await saveOrUpdateSection(this.section)
       this.loadSections()
       this.isAddSectionShow = false
       ;(this.$refs['section-form'] as Form).resetFields()
@@ -271,7 +283,7 @@ export default Vue.extend({
       return draggingNode.data.sectionId === dropNode.data.sectionId && type !== 'inner'
     },
 
-    async handleSort (dragNode: any, dropNode: any, type: any, event: any) {
+    async handleSort (dragNode: any, dropNode: any) {
       this.isLoading = true
       try {
         await Promise.all(dropNode.parent.childNodes.map((item: any, index: number) => {

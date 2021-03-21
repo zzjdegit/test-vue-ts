@@ -93,8 +93,7 @@ export default Vue.extend({
             this.loadAllMenus() // 更新数据列表
           }
         })
-        .catch(err => { // 取消执行这里
-          console.log(err)
+        .catch(() => { // 取消执行这里
           this.$message.info('已取消删除')
         })
     }

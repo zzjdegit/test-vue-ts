@@ -55,17 +55,18 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable */
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'AppAside',
   methods: {
     handleOpen (key: string, keyPath: string): void {
-      console.log(key, keyPath)
+      console.info(key, keyPath)
     },
 
     handleClose (key: string, keyPath: string): void {
-      console.log(key, keyPath)
+      console.info(key, keyPath)
     }
   }
 })

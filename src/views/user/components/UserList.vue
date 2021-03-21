@@ -164,8 +164,7 @@ export default Vue.extend({
     },
 
     async handleForbidUser (user: any) {
-      const { data } = await forbidUser(user.id)
-      console.log(data)
+      await forbidUser(user.id)
     },
 
     handleQuery () {
