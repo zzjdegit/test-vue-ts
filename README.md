@@ -1,4 +1,4 @@
-# edu-boss-fed
+# test-vue-ts
 
 ## Project setup
 ```
